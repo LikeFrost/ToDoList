@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Steps } from "antd";
+import { Col, Row, Steps } from "antd";
 import Prism from "prismjs/components/prism-core";
 import "prismjs/components/prism-clike";
 import "prismjs/components/prism-javascript";
@@ -18,16 +18,20 @@ const Content = ({ code, language, children }) => {
   }, [code]);
 
   return (
-    <div className="flex px-[50px]">
-      <div className="w-[50vw]">
+    <Row>
+      <Col md={12} xs={22} className="mx-[25px]">
         <pre className="max-h-[70vh]">
           <code className={`language-${language}`}>{code}</code>
         </pre>
-      </div>
-      <div className="flex w-[40vw] border-[1px] border-solid border-[#13c2c2] rounded-[5px] p-[20px] ml-[50px] max-h-[70vh] overflow-y-auto">
+      </Col>
+      <Col
+        md={10}
+        xs={22}
+        className="flex border-[1px] border-solid border-[#13c2c2] rounded-[5px] p-[20px] max-h-[70vh] overflow-y-auto mx-[25px]"
+      >
         {children}
-      </div>
-    </div>
+      </Col>
+    </Row>
   );
 };
 
@@ -87,12 +91,12 @@ function TodoListDemo() {
   };
 
   return (
-    <div>
-      <div className="p-[50px] ">
+    <Row>
+      <Col span={24} className="p-[50px] ">
         <Steps current={current} items={stepsConfig} onChange={onChange} />
-      </div>
-      <div>{steps[current].content}</div>
-    </div>
+      </Col>
+      <Col span={24}>{steps[current].content}</Col>
+    </Row>
   );
 }
 
