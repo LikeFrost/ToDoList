@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import TodoListDemo from "./pages";
+import { ConfigProvider } from "antd";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: "#5cdbd3",
+          borderRadius: 2,
+        },
+      }}
+    >
+      <TodoListDemo />
+    </ConfigProvider>
   );
 }
 
